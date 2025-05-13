@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from app.routes.crypto_routes import crypto_bp  # Importa las rutas
 from app.errors.handlers import register_error_handlers  # Manejo de errores
 
@@ -10,5 +10,10 @@ def create_app():
 
     # Registrar el manejador de errores personalizados
     register_error_handlers(app)
+
+    @app.route("/", methods=["GET"])
+    def home():
+        return jsonify({"mensaje": "API funcionando en Flask"})
+
 
     return app
