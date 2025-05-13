@@ -1,6 +1,9 @@
 from flask import Flask, jsonify
 from app.routes.crypto_routes import crypto_bp  # Importa las rutas
 from app.errors.handlers import register_error_handlers  # Manejo de errores
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)  # Crea la app Flask

@@ -1,11 +1,13 @@
 from flask import Blueprint, request, jsonify
 from app.services.crypto_service import CryptoService
 from app.errors.exceptions import BadRequestException
+from app.utils.auth_utils import require_api_key
 
 # Creamos un Blueprint (una mini app para agrupar rutas)
 crypto_bp = Blueprint('crypto', __name__)
 
 @crypto_bp.route('/generate-password', methods=['POST'])
+@require_api_key()
 def generate_password():
     try:
         # Obtenemos los datos del cuerpo de la solicitud (JSON)
@@ -18,6 +20,7 @@ def generate_password():
         raise BadRequestException(str(e))  
 
 @crypto_bp.route('/encrypt', methods=['POST'])
+@require_api_key()
 def encrypt():
     try:
         data = request.get_json()
@@ -27,6 +30,7 @@ def encrypt():
         raise BadRequestException(str(e))
 
 @crypto_bp.route('/decrypt', methods=['POST'])
+@require_api_key()
 def decrypt():
     try:
         data = request.get_json()
