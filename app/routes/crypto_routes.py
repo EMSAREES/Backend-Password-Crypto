@@ -15,7 +15,7 @@ def generate_password():
         password = CryptoService.generate_password(data)
         return jsonify({"password": password})  # Retornamos JSON con la contraseña
     except Exception as e:
-        raise BadRequestException(str(e))  # Lanzamos error personalizado
+        raise BadRequestException(str(e))  
 
 @crypto_bp.route('/encrypt', methods=['POST'])
 def encrypt():
