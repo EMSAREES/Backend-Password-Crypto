@@ -2,4 +2,4 @@ flask==3.1.0
 cryptography==44.0.0
 pip
 gunicorn==23.0.0
-setuptools
+setuptools==78.1.0
