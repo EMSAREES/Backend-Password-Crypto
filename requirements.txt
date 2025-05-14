@@ -3,3 +3,4 @@ cryptography==44.0.0
 pip
 gunicorn==23.0.0
 python-dotenv
+flask-cors==5.0.1
